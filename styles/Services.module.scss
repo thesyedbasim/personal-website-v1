@@ -1,0 +1,28 @@
+.side-picture {
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+
+	@media only screen and (max-width: 700px) {
+		// width: 100vw;
+		overflow: hidden;
+		justify-content: start !important;
+
+		grid-row: 1/2;
+	}
+
+	&--right {
+		justify-self: flex-end;
+	}
+}
+
+.side-picture-tag {
+	--image-width: 95%;
+
+	@media only screen and (max-width: 700px) {
+		--image-width: 45rem;
+	}
+
+	width: var(--image-width);
+}

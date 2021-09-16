@@ -1,0 +1,33 @@
+.base-modal-feedback {
+	position: absolute;
+	z-index: 9999;
+	top: 50%;
+	left: 50%;
+	width: 40rem;
+	height: 40rem;
+	border-radius: 1.5rem;
+	border: none;
+	box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+	padding: 2rem;
+
+	transform: translate(-50%, -50%);
+
+	background-color: var(--color-white);
+
+	display: grid;
+	grid-template-rows: max-content max-content;
+	justify-items: center;
+	align-content: center;
+	row-gap: 2rem;
+}
+
+.icon {
+	width: 15rem;
+	height: 15rem;
+}
+
+.modal-caption-big {
+	font-size: 3rem;
+	font-weight: 500;
+	text-align: center;
+}

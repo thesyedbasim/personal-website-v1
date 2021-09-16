@@ -1,0 +1,36 @@
+@keyframes upAndDown {
+	0% {
+		transform: translateY(0) skew(-5deg, -5deg);
+	}
+
+	100% {
+		transform: translateY(-2%) skew(-5deg, -5deg);
+	}
+}
+
+.header {
+	overflow-x: hidden;
+}
+
+.header-image {
+	display: flex;
+	justify-content: flex-start;
+	width: 100%;
+	margin-left: 5rem;
+	// transform: scale(1.1);
+
+	@media only screen and (max-width: 630px) {
+		margin-left: 0;
+	}
+}
+
+.header-image-tag {
+	width: 100%;
+
+	animation-name: upAndDown;
+	animation-duration: 1.5s;
+	animation-fill-mode: forwards;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-timing-function: ease-in-out;
+}

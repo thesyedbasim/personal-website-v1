@@ -1,0 +1,224 @@
+.copy {
+	display: grid;
+	row-gap: var(--row-gap);
+	align-items: start;
+
+	&.variant--superhero {
+		--title-font-size: 3.6rem;
+		--title-font-weight: 700;
+		--title-line-height: 1;
+
+		--body-font-size: 1.8rem;
+		--body-font-weight: 400;
+		--body-line-height: 1.8;
+
+		@media only screen and (max-width: 1080px) {
+			--title-font-size: 3.25vw;
+		}
+
+		@media only screen and (max-width: 720px) {
+			--title-font-size: 2.6rem;
+		}
+
+		@media only screen and (max-width: 680px) {
+			--title-font-size: 2.4rem;
+		}
+	}
+
+	&.variant--section {
+		--caption-font-size: 1.4rem;
+		--caption-font-weight: 600;
+
+		--title-font-size: 2.7rem;
+		--title-font-weight: 600;
+		--title-line-height: 1.2;
+
+		--body-font-size: 1.8rem;
+		--body-font-weight: 400;
+		--body-line-height: 1.8;
+
+		--row-gap: var(--row-gap-medium);
+
+		@media only screen and (max-width: 450px) {
+			--caption-font-size: 1.25rem;
+			--title-font-size: 2.2rem;
+		}
+	}
+
+	&.variant--sideBySide {
+		--caption-font-size: 1.2rem;
+		--caption-font-weight: 600;
+
+		--title-font-size: 2.4rem;
+		--title-font-weight: 600;
+		--title-line-height: 1.2;
+
+		--body-font-size: 1.7rem;
+		--body-font-weight: 400;
+		--body-line-height: 1.7;
+
+		--row-gap: var(--row-gap-medium);
+	}
+
+	&.variant--footer {
+		--caption-font-size: 1rem;
+		--caption-font-weight: 500;
+
+		--title-font-size: 2rem;
+		--title-font-weight: 600;
+		--title-line-height: 1.2;
+
+		--body-font-size: 1.7rem;
+		--body-font-weight: 400;
+		--body-line-height: 1.8;
+
+		--row-gap: var(--row-gap-medium);
+	}
+
+	&.variant--detail {
+		--icon-size: 4rem;
+
+		--title-font-size: 1.5rem;
+		--title-font-weight: 500;
+		--title-line-height: 1.75;
+
+		--body-font-size: 1.5rem;
+		--body-font-weight: 400;
+		--body-line-height: 1.65;
+
+		--row-gap: var(--row-gap-extra-small);
+	}
+
+	&.variant--items {
+		--image-size: 14rem;
+
+		// @media only screen and (max-width: 600px) {
+		// 	--image-size: 10rem;
+		// }
+
+		--title-font-size: 1.5rem;
+		--title-font-weight: 500;
+		--title-line-height: 1.75;
+
+		--body-font-size: 1.5rem;
+		--body-font-weight: 400;
+		--body-line-height: 1.65;
+
+		--row-gap: var(--row-gap-extra-small);
+	}
+
+	&__header,
+	&__body {
+		padding: 0 3rem 0 2rem;
+	}
+
+	&__header {
+		display: grid;
+		row-gap: var(--row-gap);
+	}
+
+	&__image {
+		width: var(--image-size);
+		height: var(--image-size);
+	}
+
+	&__icon {
+		width: var(--icon-size);
+		height: var(--icon-size);
+		stroke: var(--accent-color);
+	}
+
+	&__caption {
+		color: var(--accent-color);
+		font-size: var(--caption-font-size);
+		font-weight: var(--caption-font-weight);
+	}
+
+	&__title {
+		font-size: var(--title-font-size);
+		font-weight: var(--title-font-weight);
+		line-height: var(--title-line-height);
+		color: var(--color-title);
+	}
+
+	&__body {
+		font-size: var(--body-font-size);
+		font-weight: var(--body-font-weight);
+		line-height: var(--body-line-height);
+		letter-spacing: var(--body-letter-spacing);
+	}
+
+	&__footer {
+		padding: 0 3rem 0 2rem;
+		display: grid;
+		grid-template-columns: repeat(2, max-content);
+		column-gap: 2rem;
+	}
+
+	&__text-item {
+		padding: 0 3rem 0 2rem;
+		color: var(--color-black);
+	}
+
+	&__cta {
+		--cta-padding: 0.8rem 2rem;
+
+		padding: var(--cta-padding);
+		font-weight: 500;
+		font-size: 1.5rem;
+		border-radius: 100rem;
+		transition: all 0.2s;
+		border: none;
+		cursor: pointer;
+		background-color: var(--cta-bg-color);
+		color: var(--cta-text-color);
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		&-icon {
+			width: 1.5rem;
+			height: 1.5rem;
+			stroke: var(--cta-text-color);
+			margin-left: 0.5rem;
+			position: relative;
+			left: 0;
+			transition: all 0.2s;
+
+			--cta-icon-hover-offset: 0.35rem;
+		}
+
+		&.variant {
+			&--button {
+				--cta-bg-color: var(--accent-color);
+				--cta-bg-hover-color: var(--accent-color-dark);
+				--cta-text-color: var(--accent-cta-color);
+
+				&:hover {
+					background-color: var(--cta-bg-hover-color);
+				}
+
+				&:hover .copy__cta-icon {
+					left: var(--cta-icon-hover-offset);
+				}
+			}
+
+			&--link {
+				--cta-padding: 0.8rem 0;
+				--cta-bg-color: transparent;
+				--cta-text-color: var(--accent-color);
+				--cta-text-hover-color: var(--accent-color-dark);
+
+				&:hover {
+					color: var(--cta-text-hover-color);
+				}
+
+				&:hover .copy__cta-icon {
+					stroke: var(--cta-text-hover-color);
+					left: var(--cta-icon-hover-offset);
+				}
+			}
+		}
+	}
+}
