@@ -19,7 +19,7 @@ const Contact = () => {
 		description:
 			'If you want grow your online presence with a great and reliable webiste, you can contact me and I would help you increase your sales and your business.',
 		url: 'https://syedbasim.com',
-		image: '/assets/social-media.jpg',
+		image: '/assets_pub/social-media.jpg',
 		image_alt: 'Syed Basim Initials',
 		twitterUsername: '@syedbasim',
 		twitterCard: 'summary',
