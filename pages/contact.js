@@ -15,10 +15,12 @@ import 'react-toastify/dist/ReactToastify.css';
 const Contact = () => {
 	const seo = useRef({
 		title: 'Contact a Website & UI/UX Designer Freelancer | Syed Basim',
+		author: 'Syed Basim',
 		description:
 			'If you want grow your online presence with a great and reliable webiste, you can contact me and I would help you increase your sales and your business.',
 		url: 'https://syedbasim.com',
 		image: '/assets/social-media.jpg',
+		image_alt: 'Syed Basim Initials',
 		twitterUsername: '@syedbasim',
 		twitterCard: 'summary',
 		type: 'website'
@@ -79,18 +81,22 @@ const Contact = () => {
 		<>
 			<Head>
 				<title>{seo.current.title}</title>
+				<meta name="author" content={seo.current.author} />
 				<meta name="description" content={seo.current.description} />
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 
+				{/* Open Graph */}
 				<meta property="og:title" content={seo.current.title} />
 				<meta property="og:description" content={seo.current.description} />
-				<meta property="og:type" content="website" />
+				<meta property="og:url" content={seo.current.url} />
+				<meta property="og:type" content={seo.current.type} />
 				<meta property="og:site_name" content={seo.current.title} />
 				<meta property="og:image" content={seo.current.image} />
-				<meta property="og:url" content={seo.current.url} />
+				<meta property="og:image:alt" content={seo.current.image_alt} />
 
-				<meta name="twitter:card" content="summary" />
-				<meta name="twitter:site" content="@syedbasim" />
+				{/* Twitter cards */}
+				<meta name="twitter:card" content={seo.current.twitterCard} />
+				<meta name="twitter:site" content={seo.current.twitterUsername} />
 				<meta name="twitter:title" content={seo.current.title} />
 				<meta name="twitter:description" content={seo.current.description} />
 				<meta name="twitter:image" content={seo.current.image} />
