@@ -1,12 +1,12 @@
-import {
-	Copy,
-	CopyHeader,
-	CopyTitle,
-	CopyBody,
-	CopyIcon
-} from '../base/copy/Copy';
+import { Copy, CopyHeader, CopyTitle, CopyBody, CopyIcon } from '../base/Copy';
 
-const CtaItem = ({ item }) => {
+interface CtaItem {
+	icon: string;
+	title: string;
+	body: string;
+}
+
+const CtaItem: React.FC<{ item: CtaItem }> = ({ item }) => {
 	return (
 		<article>
 			<Copy variant="detail">

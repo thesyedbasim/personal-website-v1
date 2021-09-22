@@ -6,7 +6,7 @@ import {
 	CopyFooter,
 	CopyHeader,
 	CopyTitle
-} from '../components/base/copy/Copy';
+} from '../components/base/Copy';
 import { SectionContainer, SectionLayout } from '../components/layout/Section';
 import styles from '../styles/404.module.scss';
 

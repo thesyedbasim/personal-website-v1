@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, FormEvent } from 'react';
 import { useRouter } from 'next/router';
 
 import { addData } from '../../lib/firebase';
@@ -13,18 +13,10 @@ const ContactForm = ({ sentSetter, errorSetter }) => {
 	const [subject, setSubject] = useState('');
 	const [message, setMessage] = useState('');
 
-	const handleSubmitForm = async (e) => {
+	const handleSubmitForm = async (e: FormEvent) => {
 		e.preventDefault();
 
 		setCanSubmit(false);
-
-		// const err = await addData('work-contact', {
-		// 	fullName,
-		// 	email,
-		// 	topic,
-		// 	subject,
-		// 	message
-		// });
 
 		const err = await addData('work-contact', {
 			fullName,
@@ -80,6 +72,7 @@ const ContactForm = ({ sentSetter, errorSetter }) => {
 		<form
 			className="form form-large accent--blue"
 			onSubmit={handleSubmitForm}
+			// @ts-ignore
 			style={{ '--padding-left': 'var(--padding-extra-large)' }}
 		>
 			<div className="form-group">
@@ -141,7 +134,6 @@ const ContactForm = ({ sentSetter, errorSetter }) => {
 					Message
 				</label>
 				<textarea
-					type="text"
 					id="message"
 					className="form-text no-resize form-control"
 					required

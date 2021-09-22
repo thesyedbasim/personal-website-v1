@@ -1,15 +1,20 @@
-import { useRef } from 'react';
+import { MutableRefObject, useRef } from 'react';
 import { SectionContainer, SectionLayout } from '../layout/Section';
-import { Copy, CopyHeader, CopyCaption, CopyTitle } from '../base/copy/Copy';
+import { Copy, CopyHeader, CopyCaption, CopyTitle } from '../base/Copy';
 import TechStackItem from './TechStackItem';
 
-const TechStack = () => {
-	const techStackSection = useRef({
+interface TechStackProperites {
+	caption: string;
+	title: string;
+}
+
+const TechStack: React.FC = () => {
+	const techStackSection: MutableRefObject<TechStackProperites> = useRef({
 		caption: 'My Tech stack',
 		title: 'Professional stack for your professional needs'
 	});
 
-	const techStackItems = useRef([
+	const techStackItems: MutableRefObject<{ image: string }[]> = useRef([
 		{
 			image: 'html'
 		},
@@ -36,6 +41,7 @@ const TechStack = () => {
 				<SectionLayout>
 					<div
 						className="row-layout"
+						// @ts-ignore
 						style={{ '--row-layout-gap': 'var(--row-layout-gap-extra-large)' }}
 					>
 						<div className="column-layout" data-columns="3,1">

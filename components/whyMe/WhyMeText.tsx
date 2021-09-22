@@ -1,7 +1,15 @@
-import { Copy, CopyCaption, CopyHeader, CopyTitle } from '../base/copy/Copy';
+import { MutableRefObject } from 'react';
+import { Copy, CopyCaption, CopyHeader, CopyTitle } from '../base/Copy';
 import { ColumnLayout } from '../layout/GridLayout';
 
-const WhyMeText = ({ text }) => {
+interface WhyMeTextProperties {
+	caption: string;
+	title: string;
+}
+
+const WhyMeText: React.FC<{ text: MutableRefObject<WhyMeTextProperties> }> = ({
+	text
+}) => {
 	return (
 		<ColumnLayout cols="3,1">
 			<Copy variant="section">

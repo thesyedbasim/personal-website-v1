@@ -1,4 +1,10 @@
-const SectionContainer = ({ children, variant }) => {
+const SectionContainer: React.FC = ({
+	children,
+	variant
+}: {
+	children: JSX.Element;
+	variant?: string;
+}) => {
 	return (
 		<div
 			className={
@@ -10,7 +16,13 @@ const SectionContainer = ({ children, variant }) => {
 	);
 };
 
-const SectionLayout = ({ children, variant }) => {
+const SectionLayout: React.FC = ({
+	children,
+	variant
+}: {
+	children: JSX.Element;
+	variant?: string;
+}) => {
 	return (
 		<div
 			className={variant === 'nav' ? 'section-layout--nav' : 'section-layout'}

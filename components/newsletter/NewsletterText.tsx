@@ -1,13 +1,22 @@
+import { MutableRefObject } from 'react';
 import {
 	Copy,
 	CopyHeader,
 	CopyTitle,
 	CopyBody,
 	CopyCaption
-} from '../base/copy/Copy';
+} from '../base/Copy';
 import { RowLayout } from '../layout/GridLayout';
 
-const NewsletterText = ({ newsletterText }) => {
+interface NewsletterTextProperties {
+	caption: string;
+	title: string;
+	body: string;
+}
+
+const NewsletterText: React.FC<{
+	newsletterText: MutableRefObject<NewsletterTextProperties>;
+}> = ({ newsletterText }) => {
 	return (
 		<RowLayout>
 			<Copy variant="sideBySide">

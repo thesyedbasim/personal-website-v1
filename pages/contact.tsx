@@ -1,18 +1,12 @@
-import { useEffect, useRef, useState } from 'react';
-import Head from 'next/head';
+import { MutableRefObject, useEffect, useRef, useState } from 'react';
 import { SectionContainer, SectionLayout } from '../components/layout/Section';
-import {
-	Copy,
-	CopyBody,
-	CopyHeader,
-	CopyTextItem,
-	CopyTitle
-} from '../components/base/copy/Copy';
 import ContactForm from '../components/contact/ContactForm';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { NextSeo } from 'next-seo';
+import { ColumnLayout } from '../components/layout/GridLayout';
+import ContactText from '../components/contact/ContactText';
 
 const Contact = () => {
 	const SEO = useRef({
@@ -26,7 +20,13 @@ const Contact = () => {
 		}
 	});
 
-	const contactSection = useRef({
+	interface ContactTextProps {
+		title: string;
+		body: string;
+		contact: { text: string }[];
+	}
+
+	const contactSection: MutableRefObject<ContactTextProps> = useRef({
 		title: 'Contact',
 		body: "If you're interested to do business with me and would like to grow your online presence, you can fill up the form and I will be ready to carefully arrange the quote according to your needs. Or, you can send an email regarding the project.",
 		contact: [
@@ -36,34 +36,22 @@ const Contact = () => {
 		]
 	});
 
-	const [error, setError] = useState(null);
-	const [sent, setSent] = useState(false);
-
-	const showSuccess = () => {
-		toast.success('Your request was successfully submitted!', {
-			position: 'top-right',
-			autoClose: 2000,
-			hideProgressBar: false,
-			closeOnClick: true,
-			pauseOnHover: true,
-			draggable: true,
-			progress: undefined
-		});
-	};
-
-	const showError = () => {
-		toast.error(error, {
-			position: 'top-right',
-			autoClose: 3000,
-			hideProgressBar: false,
-			closeOnClick: true,
-			pauseOnHover: true,
-			draggable: true,
-			progress: undefined
-		});
-	};
+	const [error, setError] = useState<boolean | null>(null);
+	const [sent, setSent] = useState<boolean>(false);
 
 	useEffect(() => {
+		const showSuccess = () => {
+			toast.success('Your request was successfully submitted!', {
+				position: 'top-right',
+				autoClose: 2000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined
+			});
+		};
+
 		if (sent === true && error === false) {
 			showSuccess();
 			setSent(false);
@@ -71,6 +59,18 @@ const Contact = () => {
 	}, [sent, error]);
 
 	useEffect(() => {
+		const showError = () => {
+			toast.error(error, {
+				position: 'top-right',
+				autoClose: 3000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined
+			});
+		};
+
 		if (error) {
 			showError();
 			setError(false);
@@ -94,22 +94,12 @@ const Contact = () => {
 						pauseOnHover
 					/>
 
-					<div className="column-layout" data-columns="1,1">
-						<div className="row-layout">
-							<Copy variant="footer">
-								<CopyHeader>
-									<CopyTitle text={contactSection.current.title} />
-								</CopyHeader>
-								<CopyBody text={contactSection.current.body} />
-								{contactSection.current.contact.map((contactItem, index) => (
-									<CopyTextItem {...contactItem} key={index} />
-								))}
-							</Copy>
-						</div>
+					<ColumnLayout cols="1,1">
+						<ContactText {...contactSection.current} />
 						<div className="row-layout">
 							<ContactForm sentSetter={setSent} errorSetter={setError} />
 						</div>
-					</div>
+					</ColumnLayout>
 				</SectionLayout>
 			</SectionContainer>
 		</>

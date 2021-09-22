@@ -11,11 +11,11 @@ const firebaseConfig = {
 	measurementId: 'G-D4B8YCFEQ0'
 };
 
-const app = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 export const db = getFirestore();
 
-export async function addData(collectionName, data) {
+export async function addData(collectionName: string, data: object) {
 	try {
 		await addDoc(collection(db, collectionName), data);
 	} catch (err) {
