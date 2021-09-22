@@ -5,7 +5,7 @@ import {
 	CopyCaption,
 	CopyHeader,
 	CopyTitle
-} from '../components/base/copy/Copy';
+} from '../components/base/Copy';
 import { ColumnLayout, RowLayout } from '../components/layout/GridLayout';
 import { SectionContainer, SectionLayout } from '../components/layout/Section';
 
