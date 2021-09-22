@@ -44,7 +44,7 @@ const Navigation = () => {
 
 			<NavigationBar
 				variant={navSize}
-				navVisibility={[navVisible, setNavVisible]}
+				navVisibility={navVisible}
 				navToggle={[openNav, closeNav]}
 			/>
 		</>

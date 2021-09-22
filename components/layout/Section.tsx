@@ -1,9 +1,6 @@
-const SectionContainer: React.FC = ({
+const SectionContainer: React.FC<{ variant?: 'nav' }> = ({
 	children,
 	variant
-}: {
-	children: JSX.Element;
-	variant?: string;
 }) => {
 	return (
 		<div
@@ -16,12 +13,9 @@ const SectionContainer: React.FC = ({
 	);
 };
 
-const SectionLayout: React.FC = ({
+const SectionLayout: React.FC<{ variant?: 'nav' }> = ({
 	children,
 	variant
-}: {
-	children: JSX.Element;
-	variant?: string;
 }) => {
 	return (
 		<div

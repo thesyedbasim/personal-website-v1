@@ -8,29 +8,21 @@ import NavCta from './NavCta';
 import NavOpen from './NavOpen';
 import NavClose from './NavClose';
 
-import { useRef } from 'react';
+import { MutableRefObject, useRef } from 'react';
 
-const NavigationBar = ({ variant, navVisibility, navToggle }) => {
-	const navItems = useRef([
-		{ text: 'Services', link: '/#services' },
-		{ text: 'Why me', link: '/#why-me' },
-		{ text: 'Newsletter', link: '/#newsletter' },
-		{ text: 'Blog', extLink: 'https://blog.syedbasim.com' }
-	]);
+interface LinkType {
+	type: 'external' | 'internal';
+	url: string;
+}
 
-	if (variant === 'small')
-		return (
-			<NavigationBarSmall
-				navItems={navItems}
-				navVisibility={navVisibility}
-				navToggle={navToggle}
-			/>
-		);
+interface NavLinkTypes {
+	text: string;
+	link: LinkType;
+}
 
-	return <NavigationBarLarge navItems={navItems} />;
-};
-
-function NavigationBarLarge({ navItems }) {
+const NavigationBarLarge: React.FC<{
+	navItems: MutableRefObject<NavLinkTypes[]>;
+}> = ({ navItems }) => {
 	return (
 		<nav className={`${styles['navigation']} accent--blue`}>
 			<SectionContainer variant="nav">
@@ -46,10 +38,13 @@ function NavigationBarLarge({ navItems }) {
 			</SectionContainer>
 		</nav>
 	);
-}
+};
 
-function NavigationBarSmall({ navItems, navVisibility, navToggle }) {
-	const [navVisible, setNavVisible] = navVisibility;
+const NavigationBarSmall: React.FC<{
+	navItems: MutableRefObject<NavLinkTypes[]>;
+	navVisibility: boolean;
+	navToggle: [() => void, () => void];
+}> = ({ navItems, navVisibility, navToggle }) => {
 	const [openNav, closeNav] = navToggle;
 
 	return (
@@ -69,14 +64,14 @@ function NavigationBarSmall({ navItems, navVisibility, navToggle }) {
 						</ul>
 						<CSSTransition
 							classNames="nav-open-menu"
-							in={!navVisible}
+							in={!navVisibility}
 							timeout={0}
 						>
 							<NavOpen openNav={openNav} />
 						</CSSTransition>
 						<CSSTransition
 							classNames="nav-container"
-							in={navVisible}
+							in={navVisibility}
 							timeout={500}
 							unmountOnExit
 						>
@@ -101,6 +96,29 @@ function NavigationBarSmall({ navItems, navVisibility, navToggle }) {
 			</SectionContainer>
 		</nav>
 	);
-}
+};
+
+const NavigationBar = ({ variant, navVisibility, navToggle }) => {
+	const navItems: MutableRefObject<NavLinkTypes[]> = useRef([
+		{ text: 'Services', link: { type: 'internal', url: '/#services' } },
+		{ text: 'Why me', link: { type: 'internal', url: '/#why-me' } },
+		{ text: 'Newsletter', link: { type: 'internal', url: '/#newsletter' } },
+		{
+			text: 'Blog',
+			link: { type: 'external', url: 'https://blog.syedbasim.com' }
+		}
+	]);
+
+	if (variant === 'small')
+		return (
+			<NavigationBarSmall
+				navItems={navItems}
+				navVisibility={navVisibility}
+				navToggle={navToggle}
+			/>
+		);
+
+	return <NavigationBarLarge navItems={navItems} />;
+};
 
 export default NavigationBar;

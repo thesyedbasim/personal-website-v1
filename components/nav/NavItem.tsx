@@ -1,27 +1,32 @@
 import Link from 'next/link';
 import styles from '../../styles/Navigation.module.scss';
 
-const NavItem = ({ text, extLink, link, closeNav }) => {
-	if (extLink) return <NavExternalLink {...{ text, extLink, closeNav }} />;
+interface LinkType {
+	type: 'internal' | 'external';
+	url: string;
+}
 
-	return <NavNativeLink {...{ text, link, closeNav }} />;
-};
+interface NavLinkType {
+	text: string;
+	link: LinkType;
+	closeNav?: () => void;
+}
 
-function NavNativeLink({ text, link, closeNav }) {
+const NavNativeLink: React.FC<NavLinkType> = ({ text, link, closeNav }) => {
 	return (
 		<li className={styles['nav-item']} onClick={closeNav}>
-			<Link href={link}>
+			<Link href={link.url}>
 				<a className={styles['nav-link']}>{text}</a>
 			</Link>
 		</li>
 	);
-}
+};
 
-function NavExternalLink({ text, extLink, closeNav }) {
+const NavExternalLink: React.FC<NavLinkType> = ({ text, link, closeNav }) => {
 	return (
 		<li className={styles['nav-item']} onClick={closeNav}>
 			<a
-				href={extLink}
+				href={link.url}
 				target="_blank"
 				rel="noopener noreferrer"
 				className={styles['nav-link']}
@@ -30,6 +35,12 @@ function NavExternalLink({ text, extLink, closeNav }) {
 			</a>
 		</li>
 	);
-}
+};
+
+const NavItem: React.FC<NavLinkType> = (props) => {
+	if (props.link.type === 'external') return <NavExternalLink {...props} />;
+
+	return <NavNativeLink {...props} />;
+};
 
 export default NavItem;
