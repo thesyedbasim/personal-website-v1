@@ -15,7 +15,16 @@ initializeApp(firebaseConfig);
 
 export const db = getFirestore();
 
-export async function addData(collectionName: string, data: object) {
+/**
+ * Creates a new document in firebase firestore database.
+ * @param collectionName - Name of the collection in a the firestore database
+ * @param data - Data which must be added to the firestore collection
+ * @returns The error object, if any
+ */
+export async function addData(
+	collectionName: string,
+	data: object
+): Promise<Error> {
 	try {
 		await addDoc(collection(db, collectionName), data);
 	} catch (err) {
