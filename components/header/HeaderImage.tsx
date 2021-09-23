@@ -6,8 +6,8 @@ const HeaderImage = ({ image }) => {
 		<figure className={styles['header-image']}>
 			<Image
 				src={`/assets/${image}.svg`}
-				width={2308}
-				height={1191}
+				width={1612}
+				height={836}
 				alt="header image mockup"
 				className={styles['header-image-tag']}
 			/>
