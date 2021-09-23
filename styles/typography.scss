@@ -192,7 +192,7 @@
 		&.variant {
 			&--button {
 				--cta-bg-color: var(--accent-color);
-				--cta-bg-hover-color: var(--accent-color-dark);
+				--cta-bg-hover-color: var(--accent-color-secondary);
 				--cta-text-color: var(--accent-cta-color);
 
 				&:hover {
@@ -208,7 +208,7 @@
 				--cta-padding: 0.8rem 0;
 				--cta-bg-color: transparent;
 				--cta-text-color: var(--accent-color);
-				--cta-text-hover-color: var(--accent-color-dark);
+				--cta-text-hover-color: var(--accent-color-secondary);
 
 				&:hover {
 					color: var(--cta-text-hover-color);

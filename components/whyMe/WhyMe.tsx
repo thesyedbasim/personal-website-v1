@@ -34,7 +34,7 @@ const WhyMe = () => {
 	]);
 
 	return (
-		<section id="why-me" className="why-me theme--grey accent--blue">
+		<section id="why-me" className="why-me theme--dark accent--blue">
 			<SectionContainer>
 				<SectionLayout>
 					<RowLayout>

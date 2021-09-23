@@ -24,7 +24,7 @@ const Cta = () => {
 	]);
 
 	return (
-		<section className="cta theme--white accent--blue">
+		<section className="cta theme--default accent--blue">
 			<SectionContainer>
 				<SectionLayout>
 					<RowLayout>

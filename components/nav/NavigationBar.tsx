@@ -24,7 +24,7 @@ const NavigationBarLarge: React.FC<{
 	navItems: MutableRefObject<NavLinkTypes[]>;
 }> = ({ navItems }) => {
 	return (
-		<nav className={`${styles['navigation']} accent--blue`}>
+		<nav className={`${styles['navigation']} theme--default accent--blue`}>
 			<SectionContainer variant="nav">
 				<SectionLayout variant="nav">
 					<ul className={styles['nav-container']}>
@@ -48,7 +48,9 @@ const NavigationBarSmall: React.FC<{
 	const [openNav, closeNav] = navToggle;
 
 	return (
-		<nav className={`${styles['navigation--small']} accent--blue`}>
+		<nav
+			className={`${styles['navigation--small']} theme--default accent--blue`}
+		>
 			<SectionContainer variant="nav">
 				<SectionLayout variant="nav">
 					<div

@@ -45,7 +45,7 @@ const Header = () => {
 	});
 
 	return (
-		<header className={`${styles['header']} accent--blue`}>
+		<header className={`${styles['header']} theme--default accent--blue`}>
 			<SectionContainer>
 				<SectionLayout>
 					<ColumnLayout cols="2,2">
