@@ -4,7 +4,7 @@ import { Copy, CopyBody } from '../base/Copy';
 
 const TheFooter = () => {
 	return (
-		<footer className={`${styles['footer']} theme--grey`}>
+		<footer className={`${styles['footer']} theme--dark`}>
 			<SectionContainer>
 				<Copy variant="footer">
 					<CopyBody

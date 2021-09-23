@@ -1,29 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 :root {
+	/* Colors */
+	--color-white: #fff;
+	--color-black: #000;
+
+	--color-black-light: #0a2540;
+	--color-grey-light: #f7f7f7;
+	--color-grey-light-2: #f6f9fc;
+	--color-grey: #eee;
+	--color-grey-dark: #d8d8d8;
+	--color-grey-dark-2: #425466;
+	--color-grey-blue: #18263c;
+	--color-grey-blue-dark: #0d1a2d;
+
+	--color-blue-extra-light: #5584f9;
+	--color-blue-light: #2f67f2;
+	--color-blue: #1c4dca;
+	--color-blue-dark: #0f255c;
+	--color-blue-dark-2: #0f255c;
+	--color-purple: #180ddf;
+	--color-red: #ff311b;
+
 	/* Typography */
 	--font-family: 'Inter', sans-serif;
-	--color-title: #0a2540;
-	--color-text: #425466;
 	--text-font-size: 1.8rem;
 	--text-font-size-small: 1.3rem;
-	--color-title: #0a2540;
 	--header-title-font-size: 7.5rem;
 	--header-support-title-font-size: 2.8rem;
 	--section-title-font-size: 4.5rem;
 
-	/* Colors */
-	--color-white: #fff;
-	--color-black: #000;
-	--color-grey-light: #f7f7f7;
-	--color-grey: #eee;
-	--color-grey-dark: #d8d8d8;
-	--color-bg-primary: #f6f9fc;
-	--color-blue-extra-light: #6a89d5;
-	--color-blue: #1c4dca;
-	--color-blue-dark: #0f255c;
-	--color-purple: #180ddf;
-	--color-red: #ff311b;
+	/* Styles */
+	--color-title: var(--color-black-light);
+	--color-text: var(--color-grey-dark-2);
+	--color-bg-default: var(--color-white);
+	--color-bg-dark: var(--color-grey-light-2);
+
+	/* Accents */
+	--accent-color-blue-primary: var(--color-blue);
+	--accent-color-blue-secondary: var(--color-blue-dark);
 }
 
 *,
@@ -60,6 +75,7 @@ body {
 	font-family: var(--font-family);
 	font-size: var(--text-font-size);
 	color: var(--color-text);
+	background-color: var(--color-bg-default);
 }
 
 a {
@@ -84,28 +100,27 @@ h6 {
 }
 
 .theme {
-	&--white {
-		--bg-color: var(--color-white);
+	&--default {
+		--bg-color: var(--color-bg-default);
 		background-color: var(--bg-color);
 	}
 
-	&--grey {
-		--bg-color: var(--color-bg-primary);
+	&--dark {
+		--bg-color: var(--color-bg-dark);
 		background-color: var(--bg-color);
 	}
 }
 
 .accent {
 	&--blue {
-		--accent-color: var(--color-blue);
-		--accent-color-dark: var(--color-blue-dark);
+		--accent-color: var(--accent-color-blue-primary);
+		--accent-color-secondary: var(--accent-color-blue-secondary);
 		--accent-cta-color: var(--color-white);
-		--accent-color-light: var(--color-blue-extra-light);
 	}
 
 	&--purple {
 		--accent-color: var(--color-purple);
-		--accent-color-dark: var(--color-blue-dark);
+		--accent-color-secondary: var(--color-blue-dark);
 		--accent-cta-color: var(--color-white);
 	}
 }
@@ -188,7 +203,7 @@ h6 {
 		transition: all 0.2s;
 
 		&:hover {
-			background-color: var(--accent-color-dark);
+			background-color: var(--accent-color-secondary);
 		}
 	}
 

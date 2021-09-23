@@ -12,7 +12,7 @@ const Newsletter = () => {
 	});
 
 	return (
-		<section className="newsletter theme--grey accent--blue" id="newsletter">
+		<section className="newsletter theme--dark accent--blue" id="newsletter">
 			<SectionContainer>
 				<SectionLayout>
 					<ColumnLayout cols="1,1">

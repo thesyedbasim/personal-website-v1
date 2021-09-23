@@ -36,7 +36,7 @@ const TechStack: React.FC = () => {
 	]);
 
 	return (
-		<section className="theme--white accent--blue">
+		<section className="theme--default accent--blue">
 			<SectionContainer>
 				<SectionLayout>
 					<div

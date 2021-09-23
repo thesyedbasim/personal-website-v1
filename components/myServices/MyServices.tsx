@@ -59,7 +59,7 @@ const MyServices = () => {
 	]);
 
 	return (
-		<section className="my-services theme--white accent--blue" id="services">
+		<section className="my-services theme--default accent--blue" id="services">
 			<SectionContainer>
 				<SectionLayout>
 					<RowLayout>
