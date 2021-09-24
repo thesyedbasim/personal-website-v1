@@ -17,10 +17,10 @@ export default function Home() {
 		title: 'Get Cheap and Reliable Websites to Grow Online',
 		description:
 			'Cheaply enhance and grow your online presence by increasing conversion rates and high SEO. You get fast, functional and beautiful websites to help you with that.',
-		url: 'https://syedbasim.com',
-		canonical: 'https://syedbasim.com',
+		url: 'https://www.syedbasim.com',
+		canonical: 'https://www.syedbasim.com',
 		openGraph: {
-			url: 'https://syedbasim.com'
+			url: 'https://www.syedbasim.com'
 		}
 	});
 

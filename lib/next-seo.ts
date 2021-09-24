@@ -6,7 +6,7 @@ const SEO: DefaultSeoProps = {
 		locale: 'en_US',
 		images: [
 			{
-				url: 'https://syedbasim.com/assets_pub/social-media.jpg',
+				url: 'https://www.syedbasim.com/assets_pub/social-media.jpg',
 				alt: 'Syed Basim Initials',
 				type: 'image/jpeg',
 				width: 1300,
