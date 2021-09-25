@@ -32,13 +32,13 @@ const MyServices = () => {
 			body: 'I create prototypes for your Mobile App or a Website. I strive for perfection. Having a mindset for great design and friendly user experience, I make sure my clients are satisfied with my prototypes.',
 			cta: [
 				{
-					text: 'Get Website',
+					text: 'Get Design',
 					type: 'button',
 					link: { type: 'internal', url: '/contact?work=design' }
 				}
 			],
 			image: {
-				url: '/assets/ui-design.svg',
+				url: '/assets/ui-design-mockup.svg',
 				alt: 'ui design mockup',
 				properties: {
 					width: 542,
