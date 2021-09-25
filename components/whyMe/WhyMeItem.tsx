@@ -1,12 +1,7 @@
+import { CopyDetailsType } from '../../types/CopyTypes';
 import { Copy, CopyHeader, CopyIcon, CopyTitle, CopyBody } from '../base/Copy';
 
-interface WhyMeItemProperties {
-	icon: string;
-	title: string;
-	body: string;
-}
-
-const WhyMeItem: React.FC<WhyMeItemProperties> = ({ icon, title, body }) => {
+const WhyMeItem: React.FC<CopyDetailsType> = ({ icon, title, body }) => {
 	return (
 		<article className="why-me-item">
 			<Copy variant="detail">

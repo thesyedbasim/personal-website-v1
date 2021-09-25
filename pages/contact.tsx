@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { NextSeo } from 'next-seo';
 import { ColumnLayout } from '../components/layout/GridLayout';
 import ContactText from '../components/contact/ContactText';
+import { SectionCopyHeader } from '../types/CopyTypes';
 
 const Contact = () => {
 	const SEO = useRef({
@@ -20,9 +21,7 @@ const Contact = () => {
 		}
 	});
 
-	interface ContactTextProps {
-		title: string;
-		body: string;
+	interface ContactTextProps extends SectionCopyHeader {
 		contact: { text: string }[];
 	}
 

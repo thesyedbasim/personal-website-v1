@@ -6,26 +6,24 @@ import {
 	CopyFooter
 } from '../base/Copy';
 import Button from '../base/Button';
-import React from 'react';
+import { SectionCopyHeader } from '../../types/CopyTypes';
 
-interface CtaTextProperties {
-	title: string;
-	body: string;
-}
-
-const CtaText: React.FC<{ text: React.MutableRefObject<CtaTextProperties> }> =
-	({ text }) => {
-		return (
-			<Copy variant="footer" style={{ paddingRight: '8rem' }}>
-				<CopyHeader>
-					<CopyTitle text={text.current.title} />
-				</CopyHeader>
-				<CopyBody text={text.current.body} />
-				<CopyFooter>
-					<Button text="Contact" link={{ type: 'internal', url: '/contact' }} />
-				</CopyFooter>
-			</Copy>
-		);
-	};
+const CtaText: React.FC<{ text: SectionCopyHeader }> = ({ text }) => {
+	return (
+		<Copy variant="footer" style={{ paddingRight: '8rem' }}>
+			<CopyHeader>
+				<CopyTitle text={text.title} />
+			</CopyHeader>
+			<CopyBody text={text.body} />
+			<CopyFooter>
+				<Button
+					text="Contact"
+					type="button"
+					link={{ type: 'internal', url: '/contact' }}
+				/>
+			</CopyFooter>
+		</Copy>
+	);
+};
 
 export default CtaText;

@@ -1,14 +1,15 @@
 import Image from 'next/image';
 import styles from '../../styles/Header.module.scss';
+import { SectionImageType } from '../../types/CopyTypes';
 
-const HeaderImage = ({ image }) => {
+const HeaderImage: React.FC<{ image: SectionImageType }> = ({ image }) => {
 	return (
 		<figure className={styles['header-image']}>
 			<Image
-				src={`/assets/${image}.svg`}
-				width={1612}
-				height={836}
-				alt="header image mockup"
+				src={image.url}
+				width={image.properties.width}
+				height={image.properties.height}
+				alt={image.alt}
 				className={styles['header-image-tag']}
 			/>
 		</figure>

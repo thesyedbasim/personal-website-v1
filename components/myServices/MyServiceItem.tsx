@@ -10,71 +10,61 @@ import {
 	CopyBody,
 	CopyFooter
 } from '../base/Copy';
+import { SectionCopyWithImage } from '../../types/CopyTypes';
 
-interface ServiceItemProperties {
-	caption: string;
-	title: string;
-	body: string;
-	cta: {
-		text: string;
-		type?: 'button' | 'link';
-		link: {
-			type: 'internal' | 'external';
-			url: string;
-		};
-	}[];
-	picture: string;
-	imageProperties: {
-		width: number;
-		height: number;
-	};
-	position: number;
-}
+const MyServiceItemTextLeft: React.FC<SectionCopyWithImage> = ({
+	caption,
+	title,
+	body,
+	cta,
+	image
+}) => {
+	return (
+		<>
+			<RowLayout>
+				<Copy variant="sideBySide">
+					<CopyHeader>
+						<CopyCaption text={caption} />
+						<CopyTitle text={title} />
+					</CopyHeader>
+					<CopyBody text={body} />
+					<CopyFooter>
+						{cta.map((ctaItem, index) => (
+							<Button {...ctaItem} key={index} />
+						))}
+					</CopyFooter>
+				</Copy>
+			</RowLayout>
+			<figure className={styles['side-picture']}>
+				<Image
+					src={image.url}
+					width={image.properties.width}
+					height={image.properties.height}
+					alt={image.alt}
+					className={styles['side-picture-tag']}
+				/>
+			</figure>
+		</>
+	);
+};
 
-const MyServiceItemTextLeft: React.FC<Omit<ServiceItemProperties, 'position'>> =
-	({ caption, title, body, cta, picture, imageProperties }) => {
-		return (
-			<>
-				<RowLayout>
-					<Copy variant="sideBySide">
-						<CopyHeader>
-							<CopyCaption text={caption} />
-							<CopyTitle text={title} />
-						</CopyHeader>
-						<CopyBody text={body} />
-						<CopyFooter>
-							{cta.map((ctaItem, index) => (
-								<Button {...ctaItem} key={index} />
-							))}
-						</CopyFooter>
-					</Copy>
-				</RowLayout>
-				<figure className={styles['side-picture']}>
-					<Image
-						src={`/assets/${picture}.svg`}
-						width={imageProperties.width}
-						height={imageProperties.height}
-						alt={picture}
-						className={styles['side-picture-tag']}
-					/>
-				</figure>
-			</>
-		);
-	};
-
-const MyServiceItemTextRight: React.FC<
-	Omit<ServiceItemProperties, 'position'>
-> = ({ caption, title, body, cta, picture, imageProperties }) => {
+const MyServiceItemTextRight: React.FC<SectionCopyWithImage> = ({
+	caption,
+	title,
+	body,
+	cta,
+	image
+}) => {
 	return (
 		<>
 			<figure
 				className={`${styles['side-picture']} ${styles['side-picture--right']}`}
 			>
 				<Image
-					src={`/assets/${picture}.svg`}
-					alt={picture}
-					width={imageProperties.width}
-					height={imageProperties.height}
+					src={image.url}
+					width={image.properties.width}
+					height={image.properties.height}
+					alt={image.alt}
 					className={styles['side-picture-tag']}
 				/>
 			</figure>
@@ -96,14 +86,17 @@ const MyServiceItemTextRight: React.FC<
 	);
 };
 
-const MyServiceItem: React.FC<ServiceItemProperties> = ({
+interface ServiceItemType extends SectionCopyWithImage {
+	position: number;
+}
+
+const MyServiceItem: React.FC<ServiceItemType> = ({
 	caption,
 	title,
 	body,
 	cta,
 	position,
-	picture,
-	imageProperties
+	image
 }) => {
 	return (
 		<ColumnLayout cols="1,1">
@@ -114,8 +107,7 @@ const MyServiceItem: React.FC<ServiceItemProperties> = ({
 						title,
 						body,
 						cta,
-						picture,
-						imageProperties
+						image
 					}}
 				/>
 			) : (
@@ -125,8 +117,7 @@ const MyServiceItem: React.FC<ServiceItemProperties> = ({
 						title,
 						body,
 						cta,
-						picture,
-						imageProperties
+						image
 					}}
 				/>
 			)}

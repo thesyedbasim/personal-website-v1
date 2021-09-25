@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import { LinkType } from '../../types/LinkTypes';
 
 type CopyVariants =
 	| 'superhero'
@@ -70,7 +71,7 @@ export const CopyFooter: React.FC = ({ children }) => {
 };
 
 export const CopyTextItem: React.FC<{
-	link?: { type: 'internal' | 'external'; url: string };
+	link?: LinkType;
 	text: string;
 }> = ({ link, text }) => {
 	function TextItem({ children }) {

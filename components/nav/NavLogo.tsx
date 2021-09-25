@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import styles from '../../styles/Navigation.module.scss';
+import { NavVariant } from '../../types/NavTypes';
 
-const NavLogo: React.FC<{ variant?: 'small' }> = ({ variant }) => {
+const NavLogo: React.FC<{ variant?: NavVariant }> = ({ variant }) => {
 	return (
 		<li className={`${styles['nav-item']} ${styles['nav-item-logo']}`}>
 			<Link href="/">

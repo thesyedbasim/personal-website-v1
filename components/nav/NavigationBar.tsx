@@ -9,19 +9,10 @@ import NavOpen from './NavOpen';
 import NavClose from './NavClose';
 
 import { MutableRefObject, useRef } from 'react';
-
-interface LinkType {
-	type: 'external' | 'internal';
-	url: string;
-}
-
-interface NavLinkTypes {
-	text: string;
-	link: LinkType;
-}
+import { NavLinkType } from '../../types/NavTypes';
 
 const NavigationBarLarge: React.FC<{
-	navItems: MutableRefObject<NavLinkTypes[]>;
+	navItems: MutableRefObject<NavLinkType[]>;
 }> = ({ navItems }) => {
 	return (
 		<nav className={`${styles['navigation']} theme--default accent--blue`}>
@@ -41,7 +32,7 @@ const NavigationBarLarge: React.FC<{
 };
 
 const NavigationBarSmall: React.FC<{
-	navItems: MutableRefObject<NavLinkTypes[]>;
+	navItems: MutableRefObject<NavLinkType[]>;
 	navVisibility: boolean;
 	navToggle: [() => void, () => void];
 }> = ({ navItems, navVisibility, navToggle }) => {
@@ -101,7 +92,7 @@ const NavigationBarSmall: React.FC<{
 };
 
 const NavigationBar = ({ variant, navVisibility, navToggle }) => {
-	const navItems: MutableRefObject<NavLinkTypes[]> = useRef([
+	const navItems: MutableRefObject<NavLinkType[]> = useRef([
 		{ text: 'Services', link: { type: 'internal', url: '/#services' } },
 		{ text: 'Why me', link: { type: 'internal', url: '/#why-me' } },
 		{ text: 'Newsletter', link: { type: 'internal', url: '/#newsletter' } },

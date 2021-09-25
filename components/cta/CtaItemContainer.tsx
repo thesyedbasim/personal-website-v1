@@ -1,18 +1,12 @@
-import { MutableRefObject } from 'react';
+import { CopyDetailsType } from '../../types/CopyTypes';
 import CtaItem from './CtaItem';
 
-interface CtaItemProperties {
-	icon: string;
-	title: string;
-	body: string;
-}
-
 const CtaItemContainer: React.FC<{
-	items: MutableRefObject<CtaItemProperties[]>;
+	items: CopyDetailsType[];
 }> = ({ items }) => {
 	return (
 		<>
-			{items.current.map((item, index) => (
+			{items.map((item, index) => (
 				<CtaItem item={item} key={index} />
 			))}
 		</>

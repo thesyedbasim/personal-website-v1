@@ -1,39 +1,38 @@
 import { MutableRefObject, useRef } from 'react';
 import { SectionContainer, SectionLayout } from '../layout/Section';
-import { Copy, CopyHeader, CopyCaption, CopyTitle } from '../base/Copy';
 import TechStackItem from './TechStackItem';
+import { SectionCopyHeader } from '../../types/CopyTypes';
+import TechStackText from './TechStackText';
 
-interface TechStackProperites {
-	caption: string;
-	title: string;
+interface TechStackSection extends SectionCopyHeader {
+	images: { image: string }[];
 }
 
 const TechStack: React.FC = () => {
-	const techStackSection: MutableRefObject<TechStackProperites> = useRef({
+	const techStackSection: MutableRefObject<TechStackSection> = useRef({
 		caption: 'My Tech stack',
-		title: 'Professional stack for your professional needs'
+		title: 'Professional stack for your professional needs',
+		images: [
+			{
+				image: 'html'
+			},
+			{
+				image: 'css'
+			},
+			{
+				image: 'js'
+			},
+			{
+				image: 'react'
+			},
+			{
+				image: 'node'
+			},
+			{
+				image: 'mongo'
+			}
+		]
 	});
-
-	const techStackItems: MutableRefObject<{ image: string }[]> = useRef([
-		{
-			image: 'html'
-		},
-		{
-			image: 'css'
-		},
-		{
-			image: 'js'
-		},
-		{
-			image: 'react'
-		},
-		{
-			image: 'node'
-		},
-		{
-			image: 'mongo'
-		}
-	]);
 
 	return (
 		<section className="theme--default accent--blue">
@@ -44,23 +43,12 @@ const TechStack: React.FC = () => {
 						// @ts-ignore
 						style={{ '--row-layout-gap': 'var(--row-layout-gap-extra-large)' }}
 					>
-						<div className="column-layout" data-columns="3,1">
-							<Copy variant="section">
-								<CopyHeader>
-									<CopyCaption text={techStackSection.current.caption} />
-									<CopyTitle text={techStackSection.current.title} />
-								</CopyHeader>
-							</Copy>
-						</div>
-						<div
-							className="grid-layout"
-							data-grid="3,2"
-							style={{ justifyItems: 'center' }}
-						>
-							{techStackItems.current.map((techStackItem, index) => (
-								<TechStackItem image={techStackItem.image} key={index} />
-							))}
-						</div>
+						<TechStackText
+							text={{
+								caption: techStackSection.current.caption,
+								title: techStackSection.current.title
+							}}
+						/>
 					</div>
 				</SectionLayout>
 			</SectionContainer>

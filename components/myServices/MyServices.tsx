@@ -1,29 +1,11 @@
 import { MutableRefObject, useRef } from 'react';
+import { SectionCopyWithImage } from '../../types/CopyTypes';
 import { RowLayout } from '../layout/GridLayout';
 import { SectionContainer, SectionLayout } from '../layout/Section';
 import MyServiceItem from './MyServiceItem';
 
-interface ServiceItemProperties {
-	caption: string;
-	title: string;
-	body: string;
-	cta: {
-		text: string;
-		type?: 'button' | 'link';
-		link: {
-			type: 'internal' | 'external';
-			url: string;
-		};
-	}[];
-	picture: string;
-	imageProperties: {
-		width: number;
-		height: number;
-	};
-}
-
 const MyServices = () => {
-	const myServices: MutableRefObject<ServiceItemProperties[]> = useRef([
+	const myServices: MutableRefObject<SectionCopyWithImage[]> = useRef([
 		{
 			caption: 'Website Development',
 			title: 'Enhance your online presence',
@@ -31,13 +13,17 @@ const MyServices = () => {
 			cta: [
 				{
 					text: 'Get Website',
+					type: 'button',
 					link: { type: 'internal', url: '/contact?work=web-dev' }
 				}
 			],
-			picture: 'web-dev-mockup',
-			imageProperties: {
-				width: 2030,
-				height: 1191
+			image: {
+				url: '/assets/web-dev-mockup.svg',
+				alt: 'web devevelopment mockup',
+				properties: {
+					width: 2030,
+					height: 1191
+				}
 			}
 		},
 		{
@@ -47,13 +33,17 @@ const MyServices = () => {
 			cta: [
 				{
 					text: 'Get Website',
+					type: 'button',
 					link: { type: 'internal', url: '/contact?work=design' }
 				}
 			],
-			picture: 'ui-design-mockup',
-			imageProperties: {
-				width: 542,
-				height: 581
+			image: {
+				url: '/assets/ui-design.svg',
+				alt: 'ui design mockup',
+				properties: {
+					width: 542,
+					height: 581
+				}
 			}
 		}
 	]);
