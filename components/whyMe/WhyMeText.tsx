@@ -1,21 +1,16 @@
-import { MutableRefObject } from 'react';
+import { SectionCopyHeader } from '../../types/CopyTypes';
 import { Copy, CopyCaption, CopyHeader, CopyTitle } from '../base/Copy';
 import { ColumnLayout } from '../layout/GridLayout';
 
-interface WhyMeTextProperties {
-	caption: string;
-	title: string;
-}
-
-const WhyMeText: React.FC<{ text: MutableRefObject<WhyMeTextProperties> }> = ({
-	text
-}) => {
+const WhyMeText: React.FC<{
+	text: SectionCopyHeader;
+}> = ({ text }) => {
 	return (
 		<ColumnLayout cols="3,1">
 			<Copy variant="section">
 				<CopyHeader>
-					<CopyCaption text={text.current.caption} />
-					<CopyTitle text={text.current.title} />
+					<CopyCaption text={text.caption} />
+					<CopyTitle text={text.title} />
 				</CopyHeader>
 			</Copy>
 		</ColumnLayout>

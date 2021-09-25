@@ -30,6 +30,7 @@ const page404 = () => {
 									<CopyFooter>
 										<Button
 											text="Home page"
+											type="button"
 											link={{ type: 'internal', url: '/' }}
 										/>
 										<Button

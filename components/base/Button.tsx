@@ -1,23 +1,7 @@
 import Link from 'next/link';
-import { MouseEvent } from 'react';
+import { ButtonType } from '../../types/ButtonTypes';
 
-interface LinkType {
-	type: 'internal' | 'external';
-	url: string;
-}
-
-interface ButtonProps {
-	type?: 'button' | 'link';
-	text: string;
-	fn?: (e: MouseEvent<HTMLButtonElement>) => void;
-	link?: LinkType;
-}
-
-const ButtonItem: React.FC<Omit<ButtonProps, 'link'>> = ({
-	text,
-	type,
-	fn
-}) => {
+const ButtonItem: React.FC<Omit<ButtonType, 'link'>> = ({ text, type, fn }) => {
 	return (
 		<button className={`copy__cta variant--${type}`} onClick={fn}>
 			{text}
@@ -28,7 +12,7 @@ const ButtonItem: React.FC<Omit<ButtonProps, 'link'>> = ({
 	);
 };
 
-const Button: React.FC<ButtonProps> = ({ type = 'button', text, fn, link }) => {
+const Button: React.FC<ButtonType> = ({ type = 'button', text, fn, link }) => {
 	if (link) {
 		if (link.type === 'internal')
 			return (

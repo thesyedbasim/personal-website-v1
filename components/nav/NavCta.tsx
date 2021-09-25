@@ -11,7 +11,7 @@ const NavCta: React.FC<{ text: string; link: string; closeNav?: () => void }> =
 			>
 				<Link href={link}>
 					<a className={`${styles['nav-link']} ${styles['nav-cta']}`}>
-						<Button text={text} />
+						<Button type="button" text={text} />
 					</a>
 				</Link>
 			</li>

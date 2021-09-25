@@ -4,26 +4,20 @@ import { ColumnLayout } from '../layout/GridLayout';
 import styles from '../../styles/Header.module.scss';
 import HeaderText from './HeaderText';
 import HeaderImage from './HeaderImage';
-
-interface HeaderSectionProperites {
-	title: string;
-	body: string;
-	picture: string;
-	cta: {
-		text: string;
-		type: 'button' | 'link';
-		link: {
-			type: 'internal' | 'external';
-			url: string;
-		};
-	}[];
-}
+import { SectionCopyWithImage } from '../../types/CopyTypes';
 
 const Header = () => {
-	const headerSection: MutableRefObject<HeaderSectionProperites> = useRef({
+	const headerSection: MutableRefObject<SectionCopyWithImage> = useRef({
 		title: 'Turning your ideas into reality.',
 		body: 'Hi, I am Syed Basim! I help you enhance and grow your online presence. I build fast, functional and beautiful websites to help you with that.',
-		picture: 'header-mockup',
+		image: {
+			url: '/assets/header-mockup.svg',
+			alt: 'header image mockup',
+			properties: {
+				width: 1612,
+				height: 836
+			}
+		},
 		cta: [
 			{
 				text: 'What I do',
@@ -49,8 +43,14 @@ const Header = () => {
 			<SectionContainer>
 				<SectionLayout>
 					<ColumnLayout cols="2,2">
-						<HeaderText text={headerSection} />
-						<HeaderImage image={headerSection.current.picture} />
+						<HeaderText
+							text={{
+								title: headerSection.current.title,
+								body: headerSection.current.body,
+								cta: headerSection.current.cta
+							}}
+						/>
+						<HeaderImage image={headerSection.current.image} />
 					</ColumnLayout>
 				</SectionLayout>
 			</SectionContainer>

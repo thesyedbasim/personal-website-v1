@@ -1,16 +1,6 @@
 import Link from 'next/link';
 import styles from '../../styles/Navigation.module.scss';
-
-interface LinkType {
-	type: 'internal' | 'external';
-	url: string;
-}
-
-interface NavLinkType {
-	text: string;
-	link: LinkType;
-	closeNav?: () => void;
-}
+import { NavLinkType } from '../../types/NavTypes';
 
 const NavNativeLink: React.FC<NavLinkType> = ({ text, link, closeNav }) => {
 	return (

@@ -5,12 +5,11 @@ import {
 	CopyTextItem,
 	CopyTitle
 } from '../../components/base/Copy';
+import { SectionCopyHeader } from '../../types/CopyTypes';
 
 import { RowLayout } from '../layout/GridLayout';
 
-interface ContactTextProps {
-	title: string;
-	body: string;
+interface ContactTextProps extends SectionCopyHeader {
 	contact: { text: string }[];
 }
 
