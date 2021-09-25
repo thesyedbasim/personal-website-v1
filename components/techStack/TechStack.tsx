@@ -3,6 +3,7 @@ import { SectionContainer, SectionLayout } from '../layout/Section';
 import TechStackItem from './TechStackItem';
 import { SectionCopyHeader } from '../../types/CopyTypes';
 import TechStackText from './TechStackText';
+import TechStackItemsContainer from './TechStackItemsContainer';
 
 interface TechStackSection extends SectionCopyHeader {
 	images: { image: string }[];
@@ -49,6 +50,7 @@ const TechStack: React.FC = () => {
 								title: techStackSection.current.title
 							}}
 						/>
+						<TechStackItemsContainer images={techStackSection.current.images} />
 					</div>
 				</SectionLayout>
 			</SectionContainer>
