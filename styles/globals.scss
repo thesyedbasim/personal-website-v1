@@ -15,6 +15,7 @@
 	--color-grey-blue-dark: #0d1a2d;
 
 	--color-blue-extra-light: #5584f9;
+	--color-blue-extra-light-2: #7ca1ff;
 	--color-blue-light: #2f67f2;
 	--color-blue: #1c4dca;
 	--color-blue-dark: #0f255c;
@@ -39,6 +40,7 @@
 	/* Accents */
 	--accent-color-blue-primary: var(--color-blue);
 	--accent-color-blue-secondary: var(--color-blue-dark);
+	--accent-color-blue-disabled: var(--color-blue-extra-light-2);
 }
 
 *,
@@ -115,6 +117,7 @@ h6 {
 	&--blue {
 		--accent-color: var(--accent-color-blue-primary);
 		--accent-color-secondary: var(--accent-color-blue-secondary);
+		--accent-color-disabled: var(--accent-color-blue-disabled);
 		--accent-cta-color: var(--color-white);
 	}
 
@@ -205,14 +208,10 @@ h6 {
 		&:hover {
 			background-color: var(--accent-color-secondary);
 		}
-	}
 
-	&-full-submit:disabled {
-		background-color: var(--accent-color-light);
-		cursor: default;
-
-		&:hover {
-			background-color: var(--accent-color-light);
+		&:disabled {
+			background-color: var(--accent-color-disabled);
+			cursor: default;
 		}
 	}
 
