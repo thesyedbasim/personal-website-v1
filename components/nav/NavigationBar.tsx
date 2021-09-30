@@ -95,11 +95,7 @@ const NavigationBar = ({ variant, navVisibility, navToggle }) => {
 	const navItems: MutableRefObject<NavLinkType[]> = useRef([
 		{ text: 'Services', link: { type: 'internal', url: '/#services' } },
 		{ text: 'Why me', link: { type: 'internal', url: '/#why-me' } },
-		{ text: 'Newsletter', link: { type: 'internal', url: '/#newsletter' } },
-		{
-			text: 'Blog',
-			link: { type: 'external', url: 'https://blog.syedbasim.com' }
-		}
+		{ text: 'Newsletter', link: { type: 'internal', url: '/#newsletter' } }
 	]);
 
 	if (variant === 'small')
