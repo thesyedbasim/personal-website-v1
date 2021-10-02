@@ -12,6 +12,8 @@ import {
 } from '../base/Copy';
 import { SectionCopyWithImage } from '../../types/CopyTypes';
 
+import kebabCase from 'lodash/kebabCase';
+
 const MyServiceItemTextLeft: React.FC<SectionCopyWithImage> = ({
 	caption,
 	title,
@@ -22,18 +24,20 @@ const MyServiceItemTextLeft: React.FC<SectionCopyWithImage> = ({
 	return (
 		<>
 			<RowLayout>
-				<Copy variant="sideBySide">
-					<CopyHeader>
-						<CopyCaption text={caption} />
-						<CopyTitle text={title} />
-					</CopyHeader>
-					<CopyBody text={body} />
-					<CopyFooter>
-						{cta.map((ctaItem, index) => (
-							<Button {...ctaItem} key={index} />
-						))}
-					</CopyFooter>
-				</Copy>
+				<div id={kebabCase(caption)}>
+					<Copy variant="sideBySide">
+						<CopyHeader>
+							<CopyCaption text={caption} />
+							<CopyTitle text={title} />
+						</CopyHeader>
+						<CopyBody text={body} />
+						<CopyFooter>
+							{cta.map((ctaItem, index) => (
+								<Button {...ctaItem} key={index} />
+							))}
+						</CopyFooter>
+					</Copy>
+				</div>
 			</RowLayout>
 			<figure className={styles['side-picture']}>
 				<Image
@@ -69,18 +73,20 @@ const MyServiceItemTextRight: React.FC<SectionCopyWithImage> = ({
 				/>
 			</figure>
 			<RowLayout>
-				<Copy variant="sideBySide">
-					<CopyHeader>
-						<CopyCaption text={caption} />
-						<CopyTitle text={title} />
-					</CopyHeader>
-					<CopyBody text={body} />
-					<CopyFooter>
-						{cta.map((ctaItem, index) => (
-							<Button {...ctaItem} key={index} />
-						))}
-					</CopyFooter>
-				</Copy>
+				<div id={kebabCase(caption)}>
+					<Copy variant="sideBySide">
+						<CopyHeader>
+							<CopyCaption text={caption} />
+							<CopyTitle text={title} />
+						</CopyHeader>
+						<CopyBody text={body} />
+						<CopyFooter>
+							{cta.map((ctaItem, index) => (
+								<Button {...ctaItem} key={index} />
+							))}
+						</CopyFooter>
+					</Copy>
+				</div>
 			</RowLayout>
 		</>
 	);

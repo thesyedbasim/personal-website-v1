@@ -35,68 +35,15 @@ const Contact = () => {
 		]
 	});
 
-	const [error, setError] = useState<boolean | null>(null);
-	const [sent, setSent] = useState<boolean>(false);
-
-	useEffect(() => {
-		const showSuccess = () => {
-			toast.success('Your request was successfully submitted!', {
-				position: 'top-right',
-				autoClose: 2000,
-				hideProgressBar: false,
-				closeOnClick: true,
-				pauseOnHover: true,
-				draggable: true,
-				progress: undefined
-			});
-		};
-
-		if (sent === true && error === false) {
-			showSuccess();
-			setSent(false);
-		}
-	}, [sent, error]);
-
-	useEffect(() => {
-		const showError = () => {
-			toast.error(error, {
-				position: 'top-right',
-				autoClose: 3000,
-				hideProgressBar: false,
-				closeOnClick: true,
-				pauseOnHover: true,
-				draggable: true,
-				progress: undefined
-			});
-		};
-
-		if (error) {
-			showError();
-			setError(false);
-		}
-	}, [error]);
-
 	return (
 		<>
 			<NextSeo {...SEO.current} />
 			<SectionContainer>
 				<SectionLayout>
-					<ToastContainer
-						position="top-right"
-						autoClose={2000}
-						hideProgressBar={false}
-						newestOnTop
-						closeOnClick
-						rtl={false}
-						pauseOnFocusLoss
-						draggable
-						pauseOnHover
-					/>
-
 					<ColumnLayout cols="1,1">
 						<ContactText {...contactSection.current} />
 						<div className="row-layout">
-							<ContactForm sentSetter={setSent} errorSetter={setError} />
+							<ContactForm />
 						</div>
 					</ColumnLayout>
 				</SectionLayout>
