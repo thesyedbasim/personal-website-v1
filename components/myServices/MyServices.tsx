@@ -19,7 +19,7 @@ const MyServices = () => {
 			],
 			image: {
 				url: '/assets/web-dev-mockup.svg',
-				alt: 'web devevelopment mockup',
+				alt: 'web development mockup',
 				properties: {
 					width: 2030,
 					height: 1191
