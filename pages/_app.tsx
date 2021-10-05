@@ -8,18 +8,31 @@ import { DefaultSeo } from 'next-seo';
 import SEO from '../lib/next-seo';
 
 import Head from 'next/head';
+import Script from 'next/script';
 
 function MyApp({ Component, pageProps }) {
 	return (
 		<>
 			<DefaultSeo {...SEO} />
-			<Head>
-				<script
-					async
-					src="https://www.googletagmanager.com/gtag/js?id=G-WEDXM46JZK"
-				></script>
-				<script src="../lib/googleAnalyticsScript" lang="ts"></script>
-			</Head>
+			<Script
+				async
+				src="https://www.googletagmanager.com/gtag/js?id=G-WEDXM46JZK"
+			/>
+			<Script
+				id="googleAnalyticsScript"
+				dangerouslySetInnerHTML={{
+					__html: `
+										window.dataLayer = window.dataLayer || [];
+
+										function gtag() {
+											dataLayer.push(arguments);
+										}
+										gtag('js', new Date());
+
+										gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
+								`
+				}}
+			/>
 			<div className="container">
 				<Navigation />
 				<Component {...pageProps} />
