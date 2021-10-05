@@ -19,7 +19,8 @@
 		"next-env.d.ts",
 		"**/*.ts",
 		"**/*.tsx",
-		"components/newsletter/NewsletterForm.js"
+		"components/newsletter/NewsletterForm.js",
+		"lib/googleAnalyticsScript.js"
 	],
 	"exclude": ["node_modules"]
 }
