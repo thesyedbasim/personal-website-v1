@@ -186,7 +186,7 @@ const ContactForm = () => {
 				</div>
 				<div className="form-group">
 					<label htmlFor="message" className="form-label">
-						Message
+						More about Our Project
 					</label>
 					<textarea
 						id="message"
@@ -200,7 +200,7 @@ const ContactForm = () => {
 					type="submit"
 					className="form-full-submit"
 					disabled={!canSubmit}
-					value="Submit"
+					value="Ready to Grow Online!"
 				/>
 			</form>
 		</>

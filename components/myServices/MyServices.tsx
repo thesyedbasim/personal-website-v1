@@ -8,8 +8,8 @@ const MyServices = () => {
 	const myServices: MutableRefObject<SectionCopyWithImage[]> = useRef([
 		{
 			caption: 'Website Development',
-			title: 'Enhance your online presence',
-			body: 'Having a great website is really important for online presence. Whether you are a blogger, a content creator, or started a company, a stunning customer drags your customers attention.',
+			title: 'Enhance your Online Presence and Conversions',
+			body: "A Fast and Great Website is de facto step to Grow Online and Increase Conversions. Whether you are a Blogger, a Content Creator, a Startup or an Enterprise, a Stunning Website drags your User's attention.",
 			cta: [
 				{
 					text: 'Get Website',
@@ -28,8 +28,8 @@ const MyServices = () => {
 		},
 		{
 			caption: 'UI/UX Design',
-			title: 'App designs that stand out',
-			body: 'I create prototypes for your Mobile App or a Website. I strive for perfection. Having a mindset for great design and friendly user experience, I make sure my clients are satisfied with my prototypes.',
+			title: 'Beautiful UI Designs with Great User Experience',
+			body: 'You get Modern Designs and Prototypes for your next potential Website or Mobile app, or just Improve your existing one! Having a mindset for Great Design and Friendly User Experience, you will be Satisfied by the Designs.',
 			cta: [
 				{
 					text: 'Get Design',

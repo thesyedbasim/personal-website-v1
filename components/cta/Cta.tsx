@@ -7,18 +7,18 @@ import { SectionCopyWithDetails } from '../../types/CopyTypes';
 
 const Cta = () => {
 	const ctaSection: MutableRefObject<SectionCopyWithDetails> = useRef({
-		title: 'Ready to grow online?',
-		body: 'I hope you need no more convincing and showing what I can do! Grow online, improve your presence & reach out to people!',
+		title: 'Ready to Grow Online?',
+		body: 'I hope you need no more convincing and showing what I can do! Grow online, Improve your Presence & Reach out to people!',
 		items: [
 			{
 				icon: 'unique',
 				title: 'Premium Designs',
-				body: 'Get distinctive designs and personalized websites, unique for your unique needs.'
+				body: 'Get Distinctive Designs and Personalized Websites, Unique for your unique Needs.'
 			},
 			{
 				icon: 'secure',
 				title: 'Secure and Reliable',
-				body: 'Websites which are developed with security and great user experience in mind.'
+				body: 'Websites are developed with Security and Great User Experience in mind.'
 			}
 		]
 	});
