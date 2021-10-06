@@ -8,27 +8,27 @@ import WhyMeText from './WhyMeText';
 const WhyMe = () => {
 	const whyMeSection: MutableRefObject<SectionCopyWithDetails> = useRef({
 		caption: 'Why Me',
-		title: 'A customer-first approach to services and business',
+		title: 'A Customer-first approach to Web Services and Business',
 		items: [
 			{
 				icon: 'perfect-design',
-				title: 'Pixel perfect design',
-				body: 'It’s really important to have a well designed and structured website & I’ve got you covered.'
+				title: 'Pixel Perfect Design',
+				body: 'A Well Design and Structure is the heart of any Website. It helps gain Trust and users willing to Convert more.'
 			},
 			{
 				icon: 'on-time',
-				title: 'On time delivery',
-				body: 'I dedicate the work to my clients. I make sure to deliver the project on time with 100% satisfaction guarantee.'
+				title: 'On Time Delivery',
+				body: 'I dedicate the work to my Clients. I make sure to deliver the Project on Time with 100% Satisfaction Guarantee.'
 			},
 			{
 				icon: 'seo',
 				title: 'Good SEO',
-				body: 'Having your website rank on the search engine list is essential to get your customers.'
+				body: 'Ranking Higher on Google along with a Great Website is Essential to get more Impressions and Conversions.'
 			},
 			{
 				icon: 'support',
-				title: 'Amazing support',
-				body: 'Once your website is up and running, you might want additional help and revisions. And I am ready for that.'
+				title: 'Amazing Support',
+				body: "After having your Website Up and Running, the work doesn't stop there, I also help you with additional Revisions."
 			}
 		]
 	});

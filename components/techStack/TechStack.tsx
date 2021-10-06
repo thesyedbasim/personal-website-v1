@@ -11,8 +11,8 @@ interface TechStackSection extends SectionCopyHeader {
 
 const TechStack: React.FC = () => {
 	const techStackSection: MutableRefObject<TechStackSection> = useRef({
-		caption: 'My Tech stack',
-		title: 'Professional stack for your professional needs',
+		caption: 'My Tech Stack',
+		title: 'Professional Stack for your Professional Needs',
 		images: [
 			{
 				image: 'html'

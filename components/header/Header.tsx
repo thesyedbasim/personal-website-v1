@@ -8,8 +8,8 @@ import { SectionCopyWithImage } from '../../types/CopyTypes';
 
 const Header = () => {
 	const headerSection: MutableRefObject<SectionCopyWithImage> = useRef({
-		title: 'Turning your ideas into reality.',
-		body: 'Hi, I am Syed Basim! I help you enhance and grow your online presence. I build fast, functional and beautiful websites to help you with that.',
+		title: 'Websites that Help you Grow Online.',
+		body: 'Hi, I am Syed Basim, a freelance Web Developer and Designer! I Enhance and Grow your Online Presence and Conversion Rates. I build Fast, Functional and Beautiful Websites to help you with that.',
 		image: {
 			url: '/assets/header-mockup.svg',
 			alt: 'header image mockup',

@@ -8,8 +8,8 @@ import { SectionCopyHeader } from '../../types/CopyTypes';
 const Newsletter = () => {
 	const newsletterSection: MutableRefObject<SectionCopyHeader> = useRef({
 		caption: 'My Weekly Newsletter',
-		title: 'Productivity directly in your inbox',
-		body: "Syed Basim's Weekly Digest is a newsletter where I give all the insights, the lessons I have learnt and tips for productivity and to improve your life."
+		title: 'Productivity & Health directly in your Inbox',
+		body: "Syed Basim's Weekly Digest is my Newsletter where I give all the Insights, Lessons I have learnt and Tips for Productivity and to Improve your Life."
 	});
 
 	return (
