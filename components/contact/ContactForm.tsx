@@ -1,7 +1,7 @@
 import { useState, useEffect, FormEvent } from 'react';
 import { useRouter } from 'next/router';
 
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { addData } from '../../lib/firebase';
 import * as emailValidator from 'email-validator';
 
@@ -112,18 +112,6 @@ const ContactForm = () => {
 
 	return (
 		<>
-			<ToastContainer
-				position="top-right"
-				autoClose={2000}
-				hideProgressBar={false}
-				newestOnTop
-				closeOnClick
-				rtl={false}
-				pauseOnFocusLoss
-				draggable
-				pauseOnHover
-			/>
-
 			<form
 				className="form form-large accent--blue"
 				onSubmit={handleSubmitForm}
