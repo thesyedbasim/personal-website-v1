@@ -21,9 +21,6 @@ const ContactText: React.FC<ContactTextProps> = ({ title, body, contact }) => {
 					<CopyTitle text={title} />
 				</CopyHeader>
 				<CopyBody text={body} />
-				{contact.map((contactItem, index) => (
-					<CopyTextItem {...contactItem} key={index} />
-				))}
 			</Copy>
 		</RowLayout>
 	);
