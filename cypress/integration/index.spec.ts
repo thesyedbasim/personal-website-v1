@@ -127,9 +127,9 @@ describe('Home page links', () => {
 // });
 
 describe('Contact form', () => {
-	it('should contain contact email', () => {
-		cy.contains('business@syedbasim.com');
-	});
+	// it('should contain contact email', () => {
+	// 	cy.contains('business@syedbasim.com');
+	// });
 
 	submitContactForm('web-dev');
 	submitContactForm('design');
