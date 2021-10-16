@@ -1,66 +1,27 @@
 import { useState, useEffect, FormEvent } from 'react';
 import { useRouter } from 'next/router';
 
-import { toast } from 'react-toastify';
+import useDisplayToast from '../../hooks/useDisplayToast';
+
 import { addData } from '../../lib/firebase';
 import * as emailValidator from 'email-validator';
 
 const ContactForm = () => {
-	const [canSubmit, setCanSubmit] = useState(false);
-
 	const [fullName, setFullName] = useState('');
 	const [email, setEmail] = useState('');
 	const [topic, setTopic] = useState('web-dev');
 	const [subject, setSubject] = useState('');
 	const [message, setMessage] = useState('');
 
-	const [error, setError] = useState<boolean | string | null>(null);
-	const [sent, setSent] = useState<boolean>(false);
-
-	useEffect(() => {
-		const showSuccess = () => {
-			toast.success('Your request was successfully submitted!', {
-				position: 'top-right',
-				autoClose: 2000,
-				hideProgressBar: false,
-				closeOnClick: true,
-				pauseOnHover: true,
-				draggable: true,
-				progress: undefined
-			});
-		};
-
-		if (sent === true && !error) {
-			showSuccess();
-			setSent(false);
-		}
-	}, [sent, error]);
-
-	useEffect(() => {
-		const showError = () => {
-			toast.error(error, {
-				position: 'top-right',
-				autoClose: 3000,
-				hideProgressBar: false,
-				closeOnClick: true,
-				pauseOnHover: true,
-				draggable: true,
-				progress: undefined
-			});
-		};
-
-		if (error) {
-			showError();
-			setError(false);
-		}
-	}, [error]);
+	const [canSubmit, setCanSubmit] = useState(false);
+	const { err, sentStatus } = useDisplayToast();
 
 	const handleSubmitForm = async (e: FormEvent) => {
 		e.preventDefault();
 
 		setCanSubmit(false);
 
-		const err = await addData('work-contact', {
+		const firebaseError = await addData('work-contact', {
 			fullName,
 			email,
 			topic,
@@ -68,20 +29,20 @@ const ContactForm = () => {
 			message
 		});
 
-		if (!err) {
+		if (!firebaseError) {
 			setFullName('');
 			setEmail('');
 			setSubject('');
 			setMessage('');
 
-			return setSent(true);
+			return sentStatus.setSent(true);
 		}
 
-		if (err)
-			setError(
+		if (firebaseError)
+			err.setError(
 				'There was some error sending the request. Please try again later.'
 			);
-		else setError(false);
+		else err.setError(false);
 	};
 
 	useEffect(() => {
@@ -105,8 +66,6 @@ const ContactForm = () => {
 
 		if (work === 'web-dev' || work === 'design') {
 			setTopic(work);
-		} else {
-			setTopic('web-dev');
 		}
 	}, [router.query]);
 
