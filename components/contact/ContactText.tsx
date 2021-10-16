@@ -2,7 +2,6 @@ import {
 	Copy,
 	CopyBody,
 	CopyHeader,
-	CopyTextItem,
 	CopyTitle
 } from '../../components/base/Copy';
 import { SectionCopyHeader } from '../../types/CopyTypes';

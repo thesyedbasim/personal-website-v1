@@ -2,7 +2,6 @@ import { MutableRefObject, useRef } from 'react';
 import { SectionContainer, SectionLayout } from '../components/layout/Section';
 import ContactForm from '../components/contact/ContactForm';
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 import { NextSeo } from 'next-seo';
 import { ColumnLayout, RowLayout } from '../components/layout/GridLayout';
@@ -38,6 +37,7 @@ const Contact = () => {
 	return (
 		<>
 			<NextSeo {...SEO.current} />
+
 			<ToastContainer
 				position="top-right"
 				autoClose={2000}
@@ -49,6 +49,7 @@ const Contact = () => {
 				draggable
 				pauseOnHover
 			/>
+
 			<SectionContainer>
 				<SectionLayout>
 					<ColumnLayout cols="1,1">

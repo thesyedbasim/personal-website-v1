@@ -1,15 +1,28 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore, addDoc, collection } from 'firebase/firestore';
 
-const firebaseConfig = {
-	apiKey: 'AIzaSyAJwxIyCEsDyF3DL3lzFswW4h7yZbW09s8',
-	authDomain: 'personal-website-99bc5.firebaseapp.com',
-	projectId: 'personal-website-99bc5',
-	storageBucket: 'personal-website-99bc5.appspot.com',
-	messagingSenderId: '205522380299',
-	appId: '1:205522380299:web:68ff4d1f17ffba014c090e',
-	measurementId: 'G-D4B8YCFEQ0'
+interface firebaseConfigType {
+	apiKey: string;
+	authDomain: string;
+	projectId: string;
+	storageBucket: string;
+	messagingSenderId: string;
+	appId: string;
+	measurementId?: string;
+}
+
+const firebaseConfig: firebaseConfigType = {
+	apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+	authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+	projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+	storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+	messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+	appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
 };
+
+if (process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID)
+	firebaseConfig.measurementId =
+		process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID;
 
 initializeApp(firebaseConfig);
 
