@@ -16,7 +16,7 @@ const submitContactForm = (topic: 'web-dev' | 'design') => {
 		cy.get('textarea#message').type('Some info about the project');
 		cy.get('input[type="submit"]').click();
 
-		cy.get('.Toastify');
+		cy.get('.Toastify__toast-container');
 	});
 };
 
