@@ -44,7 +44,6 @@
 	position: relative;
 	top: 3rem;
 	color: var(--color-text);
-	z-index: 1000;
 }
 
 .nav-container--small {
@@ -58,7 +57,7 @@
 	box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 	width: 40vw;
 	position: absolute;
-	z-index: 1001;
+	z-index: 1000;
 	right: 3rem;
 	top: 0;
 
