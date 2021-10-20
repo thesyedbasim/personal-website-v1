@@ -147,7 +147,7 @@ const ContactForm = () => {
 					type="submit"
 					className="form-full-submit"
 					disabled={!canSubmit}
-					value="Ready to Grow Online!"
+					value="Submit"
 				/>
 			</form>
 		</>
