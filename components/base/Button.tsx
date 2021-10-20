@@ -13,25 +13,23 @@ const ButtonItem: React.FC<Omit<ButtonType, 'link'>> = ({ text, type, fn }) => {
 };
 
 const Button: React.FC<ButtonType> = ({ type = 'button', text, fn, link }) => {
-	if (link) {
-		if (link.type === 'internal')
-			return (
-				<Link href={link.url}>
-					<a>
-						<ButtonItem {...{ type, text, fn }} />
-					</a>
-				</Link>
-			);
+	if (!link) return <ButtonItem {...{ type, text, fn }} />;
 
-		if (link.type === 'external')
-			return (
-				<a href={link.url} rel="noopener noreferrer">
+	if (link.type === 'internal')
+		return (
+			<Link href={link.url}>
+				<a>
 					<ButtonItem {...{ type, text, fn }} />
 				</a>
-			);
-	}
+			</Link>
+		);
 
-	return <ButtonItem {...{ type, text, fn }} />;
+	if (link.type === 'external')
+		return (
+			<a href={link.url} rel="noopener noreferrer" target="_blank">
+				<ButtonItem {...{ type, text, fn }} />
+			</a>
+		);
 };
 
 export default Button;
