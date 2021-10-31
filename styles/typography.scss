@@ -89,6 +89,18 @@
 		--row-gap: var(--row-gap-extra-small);
 	}
 
+	&.variant--linkItem {
+		--title-font-size: 1.5rem;
+		--title-font-weight: 500;
+		--title-line-height: 1.75;
+
+		--body-font-size: 1.5rem;
+		--body-font-weight: 400;
+		--body-line-height: 1.65;
+
+		--row-gap: var(--row-gap-extra-small);
+	}
+
 	&.variant--items {
 		--image-size: 14rem;
 

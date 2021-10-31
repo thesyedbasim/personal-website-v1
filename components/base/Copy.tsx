@@ -7,6 +7,7 @@ type CopyVariants =
 	| 'super-section'
 	| 'section'
 	| 'sideBySide'
+	| 'linkItem'
 	| 'items'
 	| 'detail'
 	| 'footer';
