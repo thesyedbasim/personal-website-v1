@@ -45,6 +45,13 @@ describe('Navigation Links', () => {
 				.click({ force: true });
 			cy.url().should('eq', `${Cypress.config().baseUrl}/#why-me`);
 		});
+		it('should navigate to why me section', () => {
+			cy.get('.Navigation_nav-container__l653k')
+				.get('li')
+				.contains('Open source')
+				.click({ force: true });
+			cy.url().should('eq', `${Cypress.config().baseUrl}/#open-source`);
+		});
 		it('should navigate to newsletter section', () => {
 			cy.get('.Navigation_nav-container__l653k')
 				.get('li')
@@ -136,7 +143,6 @@ describe('Contact form', () => {
 });
 
 //test 404
-
 describe('404 page', () => {
 	it('should navigate to non existing page and should contain 404 text', () => {
 		cy.visit('/page-not-existing', { failOnStatusCode: false });
