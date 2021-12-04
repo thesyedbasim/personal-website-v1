@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { NextSeo } from 'next-seo';
 
 import Cta from '../components/cta/Cta';
@@ -10,10 +10,6 @@ import TechStack from '../components/techStack/TechStack';
 import WhyMe from '../components/whyMe/WhyMe';
 
 export default function Home() {
-	useEffect(() => {
-		document.documentElement.lang = 'en';
-	}, []);
-
 	const SEO = useRef({
 		title: 'Get Cheap and Reliable Websites to Grow Online',
 		description:
