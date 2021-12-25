@@ -115,24 +115,6 @@ describe('Home page links', () => {
 	});
 });
 
-// describe('Revue newsletter', () => {
-// 	it("should navigate to getrevue's website", () => {
-// 		cy.visit('/');
-
-// 		cy.get('#newsletter footer button').click();
-// 		cy.url().should(
-// 			'eq',
-// 			'https://www.getrevue.co/profile/syedbasim/add_subscriber'
-// 		);
-
-// 		cy.get('#newsletter footer .form-description a').first().click();
-// 		cy.url().should('eq', 'https://www.getrevue.co/terms');
-
-// 		cy.get('#newsletter footer .form-description a').last().click();
-// 		cy.url().should('eq', 'https://www.getrevue.co/privacy');
-// 	});
-// });
-
 describe('Contact form', () => {
 	// it('should contain contact email', () => {
 	// 	cy.contains('business@syedbasim.com');
