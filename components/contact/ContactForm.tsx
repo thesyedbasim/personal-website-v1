@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 
 import useDisplayToast from '../../hooks/useDisplayToast';
 
-import { addData } from '../../lib/firebase';
+import { pushData } from '../../lib/firebase';
 import * as emailValidator from 'email-validator';
 
 const ContactForm = () => {
@@ -21,7 +21,7 @@ const ContactForm = () => {
 
 		setCanSubmit(false);
 
-		const firebaseError = await addData('work-contact', {
+		const { error: firebaseError } = await pushData('work-contact', {
 			fullName,
 			email,
 			topic,
@@ -35,6 +35,8 @@ const ContactForm = () => {
 			setSubject('');
 			setMessage('');
 
+			err.setError(false);
+
 			return sentStatus.setSent(true);
 		}
 
@@ -42,7 +44,6 @@ const ContactForm = () => {
 			err.setError(
 				'There was some error sending the request. Please try again later.'
 			);
-		else err.setError(false);
 	};
 
 	useEffect(() => {

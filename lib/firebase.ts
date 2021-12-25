@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, addDoc, collection } from 'firebase/firestore';
+import { getDatabase, push, ref, set } from 'firebase/database';
 
 interface firebaseConfigType {
 	apiKey: string;
@@ -24,23 +24,32 @@ if (process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID)
 	firebaseConfig.measurementId =
 		process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID;
 
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
-export const db = getFirestore();
+const database = getDatabase(app);
 
 /**
- * Creates a new document in firebase firestore database.
- * @param collectionName - Name of the collection in a the firestore database
- * @param data - Data which must be added to the firestore collection
- * @returns The error object, if any
+ * Pushes data into realtime data in the specified path
+ * @param path path to push data onto
+ * @param data payload
+ * @returns object with error
  */
-export async function addData(
-	collectionName: string,
-	data: object
-): Promise<Error> {
+export const pushData: (
+	path: string,
+	data: any
+) => Promise<{ error: Error | null }> = async (path, data) => {
+	let error: Error | null = null;
+
 	try {
-		await addDoc(collection(db, collectionName), data);
+		const pathListRef = ref(database, path);
+		const dataToPush = push(pathListRef);
+
+		await set(dataToPush, data);
 	} catch (err) {
-		return err;
+		error = err;
+
+		console.error(err);
+	} finally {
+		return { error };
 	}
-}
+};

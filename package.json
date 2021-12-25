@@ -7,28 +7,28 @@
 		"build": "next build",
 		"export": "next build && next export",
 		"start": "next start",
-		"start:prod": "next build && next start",
 		"e2e": "cypress open",
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"chokidar": "^3.5.2",
 		"email-validator": "^2.0.4",
-		"firebase": "^9.0.1",
+		"firebase": "^9.6.1",
 		"lodash": "^4.17.21",
-		"next": "^12.0.5",
-		"next-seo": "^4.27.0",
+		"next": "^12.0.7",
+		"next-seo": "^4.28.1",
 		"react": "^17.0.2",
 		"react-dom": "17.0.2",
-		"react-toastify": "^8.0.2",
+		"react-toastify": "^8.1.0",
 		"react-transition-group": "^4.4.2"
 	},
 	"devDependencies": {
 		"@bahmutov/add-typescript-to-cypress": "^2.1.2",
-		"@types/lodash": "^4.14.175",
-		"@types/react": "^17.0.24",
-		"cypress": "^8.7.0",
-		"eslint": "7.32.0",
-		"eslint-config-next": "11.1.2",
-		"sass": "^1.42.1"
+		"@types/lodash": "^4.14.178",
+		"@types/react": "^17.0.37",
+		"cypress": "^9.1.1",
+		"eslint": "8.4.1",
+		"eslint-config-next": "12.0.7",
+		"sass": "^1.45.0"
 	}
 }
