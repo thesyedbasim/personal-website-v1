@@ -15,6 +15,11 @@ const OpenSource = () => {
 					title: 'JSON to ENV',
 					body: 'A light npm executable package to convert JSON files to Environment Variable format.',
 					link: 'https://www.npmjs.com/package/json-to-env-var'
+				},
+				{
+					title: 'Miscellaneous Discord Bot',
+					body: 'A fun Discord bot to add humor to your servers!',
+					link: 'https://github.com/thesyedbasim/misc-bot'
 				}
 			]
 		});
