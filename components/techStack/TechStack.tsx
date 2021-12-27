@@ -18,10 +18,10 @@ const TechStack: React.FC = () => {
 				image: 'html'
 			},
 			{
-				image: 'css'
+				image: 'sass'
 			},
 			{
-				image: 'js'
+				image: 'ts'
 			},
 			{
 				image: 'react'
