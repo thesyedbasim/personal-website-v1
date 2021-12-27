@@ -2,7 +2,7 @@ import { MutableRefObject, useRef } from 'react';
 import { SectionContainer, SectionLayout } from '../layout/Section';
 import { ColumnLayout, RowLayout } from '../layout/GridLayout';
 import { SectionCopyWithItems } from '../../types/CopyTypes';
-import { Copy, CopyCaption, CopyTitle } from '../base/Copy';
+import { Copy, CopyCaption, CopyHeader, CopyTitle } from '../base/Copy';
 import OpenSourceCard from './OpenSourceCard';
 
 const OpenSource = () => {
@@ -34,11 +34,13 @@ const OpenSource = () => {
 					<RowLayout>
 						<ColumnLayout cols="3,1">
 							<Copy variant="section">
-								<CopyCaption text={openSourceContributions.current.caption} />
-								<CopyTitle text={openSourceContributions.current.title} />
+								<CopyHeader>
+									<CopyCaption text={openSourceContributions.current.caption} />
+									<CopyTitle text={openSourceContributions.current.title} />
+								</CopyHeader>
 							</Copy>
 						</ColumnLayout>
-						<ColumnLayout cols="1,1">
+						<ColumnLayout cols="2,2">
 							{openSourceContributions.current.items.map((item, index) => (
 								<OpenSourceCard key={index} {...item} />
 							))}
