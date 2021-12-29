@@ -4,7 +4,6 @@ import { NextSeo } from 'next-seo';
 import Cta from '../components/cta/Cta';
 import Header from '../components/header/Header';
 import MyServices from '../components/myServices/MyServices';
-import OpenSource from '../components/openSource/OpenSource';
 import Newsletter from '../components/newsletter/Newsletter';
 import TechStack from '../components/techStack/TechStack';
 import WhyMe from '../components/whyMe/WhyMe';
@@ -29,7 +28,6 @@ export default function Home() {
 				<WhyMe />
 				<MyServices />
 				<TechStack />
-				<OpenSource />
 				<Newsletter />
 				<Cta />
 			</main>
