@@ -23,7 +23,7 @@ const Navigation = () => {
 
 	useEffect(() => {
 		if (process.browser) {
-			if (window.innerWidth > 700) {
+			if (window.innerWidth > 850) {
 				setNavSize('large');
 			} else {
 				setNavSize('small');

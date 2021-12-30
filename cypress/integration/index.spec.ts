@@ -45,9 +45,6 @@ describe('Navigation Links', () => {
 				.click({ force: true });
 			cy.url().should('eq', `${Cypress.config().baseUrl}/#why-me`);
 		});
-		it('should contain github link', () => {
-			cy.get('.Navigation_nav-container__l653k').get('li').contains('GitHub');
-		});
 		it('should navigate to newsletter section', () => {
 			cy.get('.Navigation_nav-container__l653k')
 				.get('li')
