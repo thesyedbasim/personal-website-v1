@@ -95,7 +95,14 @@ const NavigationBar = ({ variant, navVisibility, navToggle }) => {
 	const navItems: MutableRefObject<NavLinkType[]> = useRef([
 		{ text: 'Services', link: { type: 'internal', url: '/#services' } },
 		{ text: 'Why me', link: { type: 'internal', url: '/#why-me' } },
-		{ text: 'Open source', link: { type: 'internal', url: '/#open-source' } },
+		{
+			text: 'GitHub',
+			link: { type: 'external', url: 'https://github.com/thesyedbasim' }
+		},
+		{
+			text: 'Blog',
+			link: { type: 'external', url: 'https://blog.syedbasim.com' }
+		},
 		{ text: 'Newsletter', link: { type: 'internal', url: '/#newsletter' } }
 	]);
 
