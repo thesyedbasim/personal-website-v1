@@ -7,7 +7,6 @@
 		"build": "next build",
 		"export": "next build && next export",
 		"start": "next start",
-		"e2e": "cypress open",
 		"lint": "next lint"
 	},
 	"dependencies": {
