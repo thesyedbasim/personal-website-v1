@@ -14,7 +14,7 @@
 	display: grid;
 	justify-content: center;
 	align-items: center;
-	grid-template-columns: 1fr repeat(5, max-content) 1fr;
+	grid-template-columns: 1fr repeat(6, max-content) 1fr;
 	column-gap: 4rem;
 
 	.nav-logo {

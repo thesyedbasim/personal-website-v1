@@ -100,6 +100,10 @@ const NavigationBar = ({ variant, navVisibility, navToggle }) => {
 			link: { type: 'external', url: 'https://github.com/thesyedbasim' }
 		},
 		{
+			text: 'Portfolio',
+			link: { type: 'external', url: 'https://fueler.io/syedbasim' }
+		},
+		{
 			text: 'Blog',
 			link: { type: 'external', url: 'https://blog.syedbasim.com' }
 		},
