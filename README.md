@@ -4,4 +4,4 @@
 
 ## What does it contain?
 
-Anything Syed Basim wants to share in public. Latest announcements, work, portfolio and courses
+Anything that Syed Basim wants to share in public. Latest announcements, work, portfolio and courses
